@@ -1,0 +1,516 @@
+/* Reset CSS for cross-browser consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+}
+
+header {
+    background-color: #00509E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: slideInDown 0.5s;
+}
+
+header a {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding-top: 10px; /* Adjust this value as needed */
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+.blue-text {
+    padding-top: 10px;
+    color: #00509E;
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    animation: fadeIn 1s;
+}
+
+.news-item {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(33% - 20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.news-item a {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Inherit the color from the parent element */
+}
+
+.news-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content {
+    padding: 15px;
+}
+
+.content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.content p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.content small {
+    display: block;
+    margin-bottom: 10px;
+    color: #999;
+}
+
+.content:hover h2 {
+    color: #00509E;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding: 0 10%; /* Add horizontal padding */
+}
+
+button {
+    background-color: #00509E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #003F7F;
+    transform: scale(1.05);
+}
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    background-color: #333;
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: slideInLeft 0.5s;
+    z-index: 1500; /* Sit on top */
+}
+
+/* Add a new class for the hidden state */
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.sidebar a {
+    padding: 10px 0;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #00509E;
+}
+
+.sidebar a.large {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color : #ffc107
+}
+
+.sidebar a.with-arrow::after {
+    content: '▼';
+    float: right;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+}
+
+.sidebar a.with-arrow.active::after {
+    transform: rotate(0);
+}
+
+#click_me {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00509E;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    font-size: 16px; /* Adjust as needed */
+}
+
+#click_me:hover {
+    background-color: #003F7F;
+    transform: scale(1.1);
+}
+
+#IG_button {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    background-color: #00356e;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    text-decoration: none;
+    font-size: 16px; /* Adjust as needed */
+}
+
+#IG_button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+}
+    
+#Game_button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #00356e;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    text-decoration: none;
+    font-size: 16px; /* Adjust as needed */
+}
+    
+#Game_button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+}
+
+#IG_button, #Game_button, #click_me {
+    width: 100px;  /* Adjust as needed */
+    height: 50px;  /* Adjust as needed */
+    text-align: center;
+    line-height: 20px;  /* Should be the same as height */
+    overflow: hidden;  /* Prevents content from spilling over */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 20% auto;
+    padding: 25px;
+    border: 3px solid #888;
+    width: 65%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s;
+    font-size: 1.15rem;
+    line-height: 1.5; 
+    font-family: 'Times New Roman'
+}
+
+#close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    button {
+        padding: 5px 10px;
+    }
+}
+/* Large devices (desktops, 992px and up) */
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+    .news-item {
+        width: calc(50% - 20px); /* Two columns */
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 768px) {
+    .news-item {
+        width: 100%; /* Single column */
+    }
+
+    .sidebar {
+        width: 150px;
+    }
+
+    .container {
+        padding: 0 5px;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 480px) */
+@media (max-width: 480px) {
+    .news-item {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 150px;
+    }
+
+    .container {
+        padding: 0 2px;
+    }
+
+    button {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Adjust heading sizes */
+    }
+
+    p {
+        font-size: 1em; /* Adjust paragraph sizes */
+    }
+}
+
+@keyframes fade {
+    0% { opacity: 1; }
+    50% { opacity: 0.25; }
+    100% { opacity: 1; }
+}
+
+.fade-text {
+    animation: fade 2s infinite;
+}
+.lds-heart {
+    /* change color here */
+    color:#ff9d9d
+  }
+.lds-heart,
+.lds-heart div,
+.lds-heart div:after,
+.lds-heart div:before {
+box-sizing: border-box;
+}
+.lds-heart {
+display: inline-block;
+position: relative;
+width: 80px;
+height: 80px;
+transform-origin: 40px 40px;
+rotate: 45deg;
+}
+.lds-heart div {
+top: 28px;
+left: 28px;
+position: absolute;
+width: 32px;
+height: 32px;
+background: currentColor;
+animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+content: " ";
+position: absolute;
+display: block;
+width: 32px;
+height: 32px;
+background: currentColor;
+}
+.lds-heart div:before {
+left: -24px;
+border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+top: -24px;
+border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+0% {
+    transform: scale(0.95);
+}
+5% {
+    transform: scale(1.1);
+}
+39% {
+    transform: scale(0.85);
+}
+45% {
+    transform: scale(1);
+}
+60% {
+    transform: scale(0.95);
+}
+100% {
+    transform: scale(0.9);
+}
+}
+#loading-wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Centers children horizontally */
+    justify-content: center; /* Centers children vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+}
+#loading {
+    position: relative;
+}
+
+#loading-wrapper p {
+    text-align: center;
+    color: #ff9d9d;
+}

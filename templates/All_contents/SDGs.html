@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SDGs </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Contentpage_final.css') }}">
+    <style>       
+        .lds-heart {
+        /* change color here */
+         color:#ff9d9d
+        }
+            .lds-heart,
+            .lds-heart div,
+            .lds-heart div:after,
+            .lds-heart div:before {
+            box-sizing: border-box;
+            }
+            .lds-heart {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            transform-origin: 40px 40px;
+            rotate: 45deg;
+            }
+            .lds-heart div {
+            top: 28px;
+            left: 28px;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: currentColor;
+            animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            .lds-heart div:after,
+            .lds-heart div:before {
+            content: " ";
+            position: absolute;
+            display: block;
+            width: 32px;
+            height: 32px;
+            background: currentColor;
+            }
+            .lds-heart div:before {
+            left: -24px;
+            border-radius: 50% 0 0 50%;
+            }
+            .lds-heart div:after {
+            top: -24px;
+            border-radius: 50% 50% 0 0;
+            }
+            @keyframes lds-heart {
+            0% {
+                transform: scale(0.95);
+            }
+            5% {
+                transform: scale(1.1);
+            }
+            39% {
+                transform: scale(0.85);
+            }
+            45% {
+                transform: scale(1);
+            }
+            60% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(0.9);
+            }
+            }
+            #loading-wrapper {
+                display: flex;
+                flex-direction: column; /* Stacks children vertically */
+                align-items: center; /* Centers children horizontally */
+                justify-content: center; /* Centers children vertically */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                z-index: 9999;
+            }
+            #loading {
+                position: absolute;
+                top: 45%;
+                left: 47%;
+                transform: translate(-50%, -50%);
+            }
+
+            #loading-wrapper p {
+                text-align: center;
+                color: #ff9d9d;
+                position: absolute;
+                left: 50%;
+                top: 52%;
+                transform: translate(-50%, -50%);
+            }
+    </style>
+</head>
+<body>
+    <div id="loading-wrapper">
+        <div id="loading" class="lds-heart" >
+            <div></div>
+        </div>
+        <p> The page is loading...</p>
+    </div>
+    <header>
+        <a href = "{{ url_for('home') }}"> 
+            <h1> Instanews Contents </h1>
+        </a>
+    </header>
+    <nav>
+        <a href=""> SDGs </a>
+        <a href="{{ url_for('Politics') }}"> Politics </a>
+        <a href="{{ url_for('Economy') }}"> Economy </a>
+        <a href="{{ url_for('Environment') }}"> Environment</a>
+        <a href="{{ url_for('Science_and_Health') }}"> Science and Health </a>
+    </nav>
+    <div class="container">
+        <h2 class="blue-text"> SDGs </h2>
+        <!-- Loop over each entry in the feed -->
+            {% for entry in entries %}
+                <div class="news-item">
+                    {% if entry.image_url %}
+                        <img src="{{ entry.image_url }}" alt="SDGs">
+                    {% else %}
+                        <img src="https://static.wixstatic.com/media/2e8b3d_6df64fd4032948dabda019fb9afd20b1~mv2.png/v1/fill/w_1202,h_712,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/2e8b3d_6df64fd4032948dabda019fb9afd20b1~mv2.png" alt="SDGs">
+                    {% endif %}
+                    <div>
+                        <!-- Display the entry title -->
+                        <h2>{{ entry.title_detail.value }}</h2>
+
+                        <!-- Display the entry published date -->
+                        <small>Published on {{ entry.publish_date }}</small>
+                       
+                        <!-- Display the entry summary -->
+                        <p>{{ entry.summary|striptags|escape }}</p>
+
+                        <!--  *Remember to divert the users to new page boasting those feactures  -->
+                        <a href="{{ entry.original_link }}">
+                            <button> Read more </button> 
+                        </a>
+                        <button class="summary" data-url="{{ entry.original_link }}"> Summary </button>
+                        <button class="discussion" data-article-id="{{ entry.article.id }}">Discussion</button>
+                    </div>
+                </div>
+            {% endfor %}
+
+        <div id="mySidebar" class="sidebar hidden">
+            <a href="{{ url_for('home') }}" class="large">Home</a>
+            <a href="" class="large with-arrow" >All agencies</a>
+            <a href="{{ url_for('BBC') }}">BBC</a>
+            <a href="{{ url_for('Guardian') }}"> Guardian </a>
+            <a href="{{ url_for('NewYorkTimes') }}"> New York Times </a>
+            <a href="{{ url_for('NHK') }}"> NHK </a>
+            <a href="{{ url_for('日テレNEWS_NNN') }}"> 日テレ </a>
+            <a href="{{ url_for('Al_Jazeera') }}">Al jazeera</a>
+            <a href="{{ url_for('NPR') }}"> npr </a>
+            <a href="{{ url_for('CBS') }}"> CBS </a>
+            <a href="{{ url_for('CNN') }}">CNN</a>
+            <a href="" class="large with-arrow">All contents</a>
+            <a href=""> SDGs </a>
+            <a href="{{ url_for('Politics') }}"> Politics </a>
+            <a href="{{ url_for('Economy') }}"> Economy </a>
+            <a href="{{ url_for('Environment') }}"> Environment</a>
+            <a href="{{ url_for('Science_and_Health') }}"> Science and Health </a>
+        </div>
+        <div>
+            <a href="https://www.instagram.com/rits_and_kshs?igsh=M2t4NHhqb2ZldDhz&utm_source=qr" id ="IG_button">Follow us!</a>
+            <a href="https://hsu-tung-hua.github.io/The_war_of_mine_WYM/WYM.html" id ="Game_button">Our Game</a>
+        </div>
+        <button id="click_me">Sidebar</button>
+    </div>
+    <footer>
+        <p> &copy; 2024 Instanews Made by KSHS and Rits students</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <p> News content</p>
+        </div>
+    </div>
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <span id="closeCommentModal">&times;</span>
+            <div id="comments"></div> <!-- Add this line -->
+            <form id="comment-form">
+                <input type="hidden" id="article_id" name="article_id">
+                <textarea id="comment_content" name="content" placeholder="Please be respectful and considerate of others' opinions."></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body> 
+</html>

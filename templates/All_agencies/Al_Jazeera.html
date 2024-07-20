@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Al Jazeera </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Agencypage_final.css') }}">
+    <style>       
+        .lds-heart {
+        /* change color here */
+         color:#ff9d9d
+        }
+            .lds-heart,
+            .lds-heart div,
+            .lds-heart div:after,
+            .lds-heart div:before {
+            box-sizing: border-box;
+            }
+            .lds-heart {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            transform-origin: 40px 40px;
+            transform: rotate(45deg);
+            }
+            .lds-heart div {
+            top: 28px;
+            left: 28px;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: currentColor;
+            animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            .lds-heart div:after,
+            .lds-heart div:before {
+            content: " ";
+            position: absolute;
+            display: block;
+            width: 32px;
+            height: 32px;
+            background: currentColor;
+            }
+            .lds-heart div:before {
+            left: -24px;
+            border-radius: 50% 0 0 50%;
+            }
+            .lds-heart div:after {
+            top: -24px;
+            border-radius: 50% 50% 0 0;
+            }
+            @keyframes lds-heart {
+            0% {
+                transform: scale(0.95);
+            }
+            5% {
+                transform: scale(1.1);
+            }
+            39% {
+                transform: scale(0.85);
+            }
+            45% {
+                transform: scale(1);
+            }
+            60% {
+                transform: scale(0.95);
+            }
+            100% {
+                transform: scale(0.9);
+            }
+            }
+            #loading-wrapper {
+                display: flex;
+                flex-direction: column; /* Stacks children vertically */
+                align-items: center; /* Centers children horizontally */
+                justify-content: center; /* Centers children vertically */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: white;
+                z-index: 9999;
+            }
+            #loading {
+                position: absolute;
+                top: 45%;
+                left: 47%;
+                transform: translate(-50%, -50%);
+            }
+
+            #loading-wrapper p {
+                text-align: center;
+                color: #ff9d9d;
+                position: absolute;
+                left: 50%;
+                top: 52%;
+                transform: translate(-50%, -50%);
+            }
+    </style>
+</head>
+<body>
+    <div id="loading-wrapper" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+        <div id="loading" class="lds-heart" >
+            <div></div>
+        </div>
+        <p> The page is loading...</p>
+    </div>
+    <header>
+        <a href = "{{ url_for('home') }}"> 
+            <h1> Instanews agencies </h1>
+        </a>
+    </header>
+    <nav>
+        <a href="{{ url_for('CNN') }}"> CNN </a>
+        <a href="{{ url_for('BBC') }}"> BBC </a>
+        <a href="{{ url_for('Guardian') }}"> Guardian </a>
+        <a href="{{ url_for('NewYorkTimes') }}"> New York Times </a>
+        <a href="{{ url_for('NHK') }}"> NHK </a>
+        <a href="{{ url_for('日テレNEWS_NNN') }}"> 日テレ </a>
+        <a href=""> Al Jazeera </a>
+        <a href="{{ url_for('NPR') }}"> npr </a>
+        <a href="{{ url_for('CBS') }}"> CBS </a>
+    </nav>
+    <div class="container">
+        <h2 class="blue-text"> Al Jazeera </h2>
+        <!-- Loop over each entry in the feed -->
+            {% for entry in feed %}
+                <div class="news-item">
+                    {% if 'image_url' in entry %}
+                    <img src="{{ entry.image_url }}" alt="Al Jazeera">
+                    {% else %}
+                    <img src="data:image/png;base64,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" alt="Al_Jazeera">
+                    {% endif %}
+                    <div>
+                        <!-- Display the entry title -->
+                        <h2>{{ entry.title }}</h2>
+
+                        <!-- Display the entry published date -->
+                        <small>Published on {{ entry.published }}</small>
+                       
+                        <!-- Display the entry summary -->
+                        <p>{{ entry.summary|striptags }}</p>
+
+                        <!--  *Remember to divert the users to new page boasting those feactures  -->
+                        <a href="{{ entry.link }}">
+                            <button> Read more </button> 
+                        </a>
+                        <button class="summary" data-url="{{ entry.link }}"> Summary </button>
+                        <button class="discussion" data-article-id="{{ entry.article.id }}">Discussion</button>
+                    </div>
+                </div>
+            {% endfor %}
+
+        <div id="mySidebar" class="sidebar hidden">
+            <a href="{{ url_for('home') }}" class="large">Home</a>
+            <a href="" class="large with-arrow" >All agencies</a>
+            <a href="{{ url_for('BBC') }}">BBC</a>
+            <a href="{{ url_for('Guardian') }}"> Guardian </a>
+            <a href="{{ url_for('NewYorkTimes') }}"> New York Times </a>
+            <a href="{{ url_for('NHK') }}"> NHK </a>
+            <a href="{{ url_for('日テレNEWS_NNN') }}"> 日テレ </a>
+            <a href="">Al jazeera</a>
+            <a href="{{ url_for('NPR') }}"> npr </a>
+            <a href="{{ url_for('CBS') }}"> CBS </a>
+            <a href="{{ url_for('CNN') }}">CNN</a>
+            <a href="" class="large with-arrow">All contents</a>
+            <a href="{{ url_for('SDGs') }}"> SDGs </a>
+            <a href="{{ url_for('Politics') }}"> Politics </a>
+            <a href="{{ url_for('Economy') }}"> Economy </a>
+            <a href="{{ url_for('Environment') }}"> Environment</a>
+            <a href="{{ url_for('Science_and_Health') }}"> Science and Health </a>
+        </div>
+        <div>
+            <a href="https://www.instagram.com/rits_and_kshs?igsh=M2t4NHhqb2ZldDhz&utm_source=qr" id ="IG_button">Follow us!</a>
+            <a href="https://hsu-tung-hua.github.io/The_war_of_mine_WYM/WYM.html" id ="Game_button">Our Game</a>
+        </div>
+        <button id="click_me">Sidebar</button>
+    </div>
+    <footer>
+        <p> &copy; 2024 Instanews Made by KSHS and Rits students</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <p> News content</p>
+        </div>
+    </div>
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <span id="closeCommentModal">&times;</span>
+            <div id="comments"></div> <!-- Add this line -->
+            <form id="comment-form">
+                <input type="hidden" id="article_id" name="article_id">
+                <textarea id="comment_content" name="content" placeholder="Please be respectful and considerate of others' opinions."></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body> 
+</html>

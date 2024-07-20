@@ -1,0 +1,585 @@
+/* Reset CSS for cross-browser consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+}
+
+header {
+    background-color: #00509E;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 0.5s;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #013a74;
+}
+
+nav a {
+    color: #ffffff;
+    padding: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #fed800c0;
+}
+
+nav a:active {
+    color: #fed800c0;
+}
+
+.blue-text {
+    padding-bottom: 10px;
+    color: #00509E;
+}
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    background-color: #343a40;
+    padding: 20px;
+    height: 100%;
+    overflow: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    animation: slideInLeft 0.5s;
+    z-index: 1500;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.sidebar > a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #f8f9fa;
+    display: block;
+    transition: color 0.3s ease;
+    font-family: 'Times New Roman', sans-serif;
+}
+
+.sidebar > a.large {
+    font-size: 1.2rem;
+    color: #ffc107;
+    padding: 12px 8px 12px 32px;
+}
+
+.sidebar > a.with-arrow::after {
+    content: '▼';
+    float: right;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+}
+
+.sidebar > a.with-arrow.active::after {
+    transform: rotate(0);
+}
+
+#click_me {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00356e;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    font-size: 16px; /* Adjust as needed */
+}
+
+#click_me:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.container {
+    max-width: 85%;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #ced4da;
+}
+
+.news-item {
+    display: flex;
+    align-items: start;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ced4da;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.news-item img {
+    margin-right: 1rem;
+    max-width: 40%;
+    min-width: 40%;
+    height: auto;
+}
+
+.news-item div {
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.news-item p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: 'Times New Roman', serif;
+}
+
+.news-item h2 {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    color: #0a0c0f;
+}
+
+.news-item small {
+    color: #6c757d;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.news-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-item button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    align-self: flex-end;
+    width: 25%;
+}
+
+.news-item button:hover {
+    background-color: #0056b3;
+}
+#IG_button {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    background-color: #00356e;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    text-decoration: none;
+    font-size: 16px; /* Adjust as needed */
+}
+
+#IG_button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+}
+    
+#Game_button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #00356e;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: bounceIn 1s;
+    text-decoration: none;
+    font-size: 16px; /* Adjust as needed */
+}
+    
+#Game_button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+}
+#IG_button, #Game_button, #click_me {
+    width: 100px;  /* Adjust as needed */
+    height: 50px;  /* Adjust as needed */
+    text-align: center;
+    line-height: 20px;  /* Should be the same as height */
+    overflow: hidden;  /* Prevents content from spilling over */
+    font-family: 'Times New Roman', Times, serif;
+}
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#myModal, #commentModal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 25px;
+    border: 2px solid #ced4da;
+    border-radius: 10px;
+    width: 50%;
+    max-height: 70vh;
+    overflow-y: auto;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    font-family: 'Times New Roman', serif;
+}
+
+#close, #closeCommentModal {
+    color: #fed800c0;;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#close:hover, #close:focus, #closeCommentModal:hover, #closeCommentModal:focus {
+    color: #fed800c0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.comment {
+    padding: 4px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-family: 'Times New Roman', serif;
+}
+
+#comment_content {
+    margin-top: 30px;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 16px;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    gap: 10px;
+}
+
+#comment-form button {
+    background-color: #013468;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.notification {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #023974;
+    color: white;
+    border-radius: 10px;
+    z-index: 10000;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    from, 20%, 40%, 60%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Media Queries for responsiveness */
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+    .news-item {
+        width: 100%; /* Single column */
+        flex-direction: row;
+    }
+    .sidebar {
+        width: 200px;
+    }
+    .container {
+        padding: 0 10px;
+    }
+    .modal-content {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 768px) {
+    .news-item {
+        width: 100%; /* Single column */
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 175px;
+    }
+
+    .container {
+        padding: 0 5px;
+    }
+    button {
+        padding: 5px 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 480px) */
+@media (max-width: 480px) {
+    .news-item {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 180px;
+    }
+
+    .container {
+        padding: 0 2px;
+        max-width: 98%;
+    }
+    .news-item img {
+        width: 100%;
+        max-width: 100%; /* Add this line */
+    }
+
+    button {
+        padding: 2px 5px;
+        width: 33%; /* Make the button take up the full width of its container */
+        align-self: center;
+        white-space: nowrap; /* Add this line */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Adjust heading sizes */
+    }
+
+    p {
+        font-size: 1em; /* Adjust paragraph sizes */
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row; /* Change this to row */
+        flex-wrap: wrap; /* Keep this as wrap */
+        justify-content: center;
+        background-color: #013a74;
+    }
+    .modal-content {
+        width: 100%;
+        margin: 10px auto;
+    }
+}
+
+
+@keyframes fade {
+    0% { opacity: 1; }
+    50% { opacity: 0.25; }
+    100% { opacity: 1; }
+}
+.fade-text {
+    animation: fade 2s infinite;
+}
+.lds-heart {
+    /* change color here */
+    color:#ff9d9d
+  }
+.lds-heart,
+.lds-heart div,
+.lds-heart div:after,
+.lds-heart div:before {
+box-sizing: border-box;
+}
+.lds-heart {
+display: inline-block;
+position: relative;
+width: 80px;
+height: 80px;
+transform-origin: 40px 40px;
+rotate: 45deg;
+}
+.lds-heart div {
+top: 28px;
+left: 28px;
+position: absolute;
+width: 32px;
+height: 32px;
+background: currentColor;
+animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+content: " ";
+position: absolute;
+display: block;
+width: 32px;
+height: 32px;
+background: currentColor;
+}
+.lds-heart div:before {
+left: -24px;
+border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+top: -24px;
+border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+0% {
+    transform: scale(0.95);
+}
+5% {
+    transform: scale(1.1);
+}
+39% {
+    transform: scale(0.85);
+}
+45% {
+    transform: scale(1);
+}
+60% {
+    transform: scale(0.95);
+}
+100% {
+    transform: scale(0.9);
+}
+}
+#loading-wrapper {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Centers children horizontally */
+    justify-content: center; /* Centers children vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+}
+#loading {
+    position: relative;
+}
+
+#loading-wrapper p {
+    text-align: center;
+    color: #ff9d9d;
+}

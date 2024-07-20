@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Welcome to Instanews </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Homepage_final.css') }}">
+</head>
+<body>
+    <header>
+        <a href = "{{ url_for('home') }}"> 
+            <h1> Instanews Homepage </h1>
+        </a>
+    </header>
+    <div class="container">
+        <h2 class="blue-text"> Today's News </h2>
+        <!-- Loop over each entry in the feed -->
+        <div class="news-container">
+            {% for entry in feed %}
+                <div class="news-item">
+                    {% if 'image_url' in entry %}
+                    <img src="{{ entry.image_url }}" alt="Home">
+                    {% else %}
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/NHK_logo_2020.svg" alt="Home">
+                    {% endif %}
+                    <div>
+                        <div class="content">
+                            <!-- Display the entry title -->
+                            <h2>{{ entry.title }}</h2>
+                       
+                            <!-- Display the entry summary -->
+                            <p>{{ entry.summary }}</p>
+                        
+                            <small>Published on {{ entry.updated }}</small>
+
+                            <!--  *Remember to divert the users to new page boasting those feactures  -->
+                            <a href="{{ entry.link }}">
+                                <button> Read more </button>
+                            </a>
+                            <button class="summary" data-url="{{ entry.link }}"> Summary </button>
+                            <button class="discussion" onclick="onDiscussionButtonClick()"> Discussion  </button> <!--Like( Read later) -->
+                        </div>    
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="mySidebar" class="sidebar hidden">
+            <a href="" class="large">Home</a>
+            <a href="" class="large with-arrow" >All agencies</a>
+            <a href="{{ url_for('BBC') }}">BBC</a>
+            <a href="{{ url_for('Guardian') }}"> Guardian </a>
+            <a href="{{ url_for('NewYorkTimes') }}"> New York Times </a>
+            <a href="{{ url_for('NHK') }}"> NHK </a>
+            <a href="{{ url_for('日テレNEWS_NNN') }}"> 日テレ </a>
+            <a href="{{ url_for('Al_Jazeera') }}">Al jazeera</a>
+            <a href="{{ url_for('NPR') }}"> npr </a>
+            <a href="{{ url_for('CBS') }}"> CBS </a>
+            <a href="{{ url_for('CNN') }}">CNN</a>
+            <a href="" class="large with-arrow">All contents</a>
+            <a href="{{ url_for('SDGs') }}"> SDGs </a>
+            <a href="{{ url_for('Politics') }}"> Politics </a>
+            <a href="{{ url_for('Economy') }}"> Economy </a>
+            <a href="{{ url_for('Environment') }}"> Environment</a>
+            <a href="{{ url_for('Science_and_Health') }}"> Science and Health </a>
+        </div>
+        <div>
+            <a href="https://www.instagram.com/rits_and_kshs?igsh=M2t4NHhqb2ZldDhz&utm_source=qr" id ="IG_button">Follow us!</a>
+            <a href="https://hsu-tung-hua.github.io/The_war_of_mine_WYM/WYM.html" id ="Game_button">Our Game</a>
+        </div>
+        <button id="click_me">Sidebar</button>
+    </div>
+    <footer>
+        <p> &copy; 2024 Instanews Made by KSHS and Rits students</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <p> News content</p>
+        </div>
+    </div>
+    <script>
+    function onDiscussionButtonClick() {
+        // Show a pop-up message
+        alert('Thank you for being willing to share your thoughts with other users! However, we encountered some difficulties when building the function. You can still leave comments in other pages. Have a nice day!');
+    }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body> 
+</html>
