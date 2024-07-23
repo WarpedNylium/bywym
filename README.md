@@ -10,13 +10,13 @@ On top of that, comments have been set up this application, making it possible f
 ## Installation
 
 1. Make sure you have Python 3.8 installed. You can download it from [here](https://www.python.org/downloads/).
-2. Open your code editor. This README assumes you are using Visual Studio Code (VS Code). Open the terminal in VS Code by clicking on "Terminal" in the menu and selecting "New Terminal".
-3. Clone this repository: `git clone https://github.com/HSU-TUNG-HUA/News_aggregator_WYM.git`(Running "https://github.com/HSU-TUNG-HUA/News_aggregator_WYM.git" in your termianl)
+2. Open terminal.
+3. Clone this repository: `git clone https://github.com/HSU-TUNG-HUA/News_aggregator_WYM.git`
 4. Navigate to the project directory: `cd News_aggregator_WYM`
 5. Install the necessary packages: `pip3 install -r requirements.txt`
 
 ## Usage
-To run the application locall, open the terminal and follow the instructions :
+To run the application locally, open the terminal and follow the instructions :
 
 1. Navigate to the project directory if you haven't already: `cd News_aggregator_WYM`
 2. Run the application: `python app.py`
